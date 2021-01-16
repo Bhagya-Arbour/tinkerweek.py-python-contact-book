@@ -168,6 +168,6 @@ while ch in (1, 2, 3, 4, 5):
         if d == -1: 
             print("The contact does not exist. Please try again") 
     elif ch == 5: 
-        display_all(cb) 
+        display_all(cb)
     else: 
         thanks() 
