@@ -12,7 +12,7 @@ def initial_contactbook():
           if t[j] == '' or t[j] == ' ': 
                     sys.exit( 
                         "Name is a needed") 
-              if j == 1: 
+                 if j == 1: 
                 t.append(int(input("Enter number*: "))) 
                  if j == 2: 
                 t.append(str(input("Enter e-mail address: "))) 
