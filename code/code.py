@@ -12,44 +12,43 @@ def initial_contactbook():
           if t[j] == '' or t[j] == ' ': 
                     sys.exit( 
                         "Name is a needed") 
-                 if j == 1: 
+          if j == 1: 
                 t.append(int(input("Enter number*: "))) 
-                 if j == 2: 
+          if j == 2: 
                 t.append(str(input("Enter e-mail address: "))) 
                 if t[j] == '' or t[j] == ' ': 
                     t[j] = None
                       
-            if j == 3: 
+          if j == 3: 
                 t.append(str(input("Enter date of birth(dd/mm/yy): "))) 
                 if t[j] == '' or t[j] == ' ': 
                   t[j] = None
-            if j == 4: 
+          if j == 4: 
                 t.append( 
-                    str(input("Enter category(Family/Friends/Work/Others): "))) 
-                    if t[j] == "" or t[j] == ' ': 
+                str(input("Enter category(Family/Friends/Work/Others): "))) 
+                if t[j] == "" or t[j] == ' ': 
                     t[j] = None
-                      
-        phone_book.append(t)
+        contact_book.append(t)
         print(contact_book) 
     return contact_book 
   
 def menu(): 
    print("********************************************************************") 
-    print("SMARTPHONE DIRECTORY", flush=False) 
-    print("********************************************************************") 
-    print("You can now perform the following operations on this contactbook\n") 
-    print("1. Add a new contact") 
-    print("2. Remove an existing contact") 
-    print("3. Delete all contacts") 
-    print("4. Search for a contact") 
-    print("5. Display all contacts") 
-    print("6. Exit contactbook") 
-  choice = int(input("Please enter your choice: ")) 
+   print("SMARTPHONE DIRECTORY", flush=False) 
+   print("********************************************************************") 
+   print("You can now perform the following operations on this contactbook\n") 
+   print("1. Add a new contact") 
+   print("2. Remove an existing contact") 
+   print("3. Delete all contacts") 
+   print("4. Search for a contact") 
+   print("5. Display all contacts") 
+   print("6. Exit contactbook") 
+   choice = int(input("Please enter your choice: ")) 
       
-    return choice 
+   return choice 
   
 def add_contact(cb): 
-  dip = [] 
+    dip = [] 
     for i in range(len(cb[0])): 
         if i == 0: 
             dip.append(str(input("Enter name: "))) 
@@ -71,51 +70,48 @@ def remove_existing(cb):
   t = 0
   for i in range(len(cb)): 
         if query == cb[i][0]: 
-            temp += 1
+          t += 1
           print(cb.pop(i)) 
           print("This query has now been removed") 
-           return cb 
-    if t == 0: 
+          return cb 
+        if t == 0: 
            print("Sorry, you have entered an invalid query.\  Please recheck and try again later.") 
           
         return cb 
   
 def delete_all(cb):
-  return pb.clear() 
+  return cb.clear() 
   
 def search_existing(cb): 
-   choice = int(input("Enter search criteria\n\n\ 
-    1. Name\n2. Number\n3. Email-id\n4. DOB\n5. Category(Family/Friends/Work/Others)\ 
-    \nPlease enter: ")) 
-     t = [] 
+    choice = int(input("Enter search criteria \n\n1. Name\n2. Number\n3. Email-id\n4. DOB\n5. Category(Family/Friends/Work/Others)\nPlease enter: ")) 
+    t = [] 
     check = -1
+   
       
     if choice == 1: 
       query = str( 
-            input("Please enter the name of the contact you wish to search: ")) 
-        for i in range(len(cb)): 
+      input("Please enter the name of the contact you wish to search: ")) 
+      for i in range(len(cb)): 
             if query == cb[i][0]: 
                 check = i 
-                t.append(pb[i]) 
+                t.append(cb[i]) 
                   
     elif choice == 2: 
       query = int( 
-            input("Please enter the number of the contact you wish to search: ")) 
-        for i in range(len(cb)): 
+      input("Please enter the number of the contact you wish to search: ")) 
+      for i in range(len(cb)): 
             if query == cb[i][1]: 
                 check = i 
                 t.append(cb[i]) 
                   
     elif choice == 3: 
-       query = str(input("Please enter the e-mail ID\ 
-        of the contact you wish to search: ")) 
+        query = str(input("Please enter the e-mail ID of the contact you wish to search: ")) 
         for i in range(len(cb)): 
             if query == cb[i][2]: 
                 check = i 
                 t.append(cb[i]) 
-                  elif choice == 4: 
-                     query = str(input("Please enter the DOB (in dd/mm/yyyy format ONLY) 
-            of the contact you wish to search: ")) 
+    elif choice == 4: 
+        query = str(input("Please enter the DOB (in dd/mm/yyyy format ONLY) of the contact you wish to search: ")) 
         for i in range(len(cb)): 
             if query == cb[i][3]: 
                 check = i 
@@ -123,33 +119,32 @@ def search_existing(cb):
                   
     elif choice == 5: 
       query = str( 
-            input("Please enter the category of the contact you wish to search: ")) 
-        for i in range(len(cb)): 
+      input("Please enter the category of the contact you wish to search: ")) 
+      for i in range(len(cb)): 
             if query == cb[i][4]: 
                 check = i 
                 t.append(cb[i]) 
-                 else: 
+            else: 
                     print("Invalid search criteria") 
-        return -1
-       if check == -1: 
-        return -1
-      else: 
-        display_all(t) 
-        return check 
-      def display_all(cb): 
+            return -1
+            if check == -1: 
+                return -1
+            else: 
+                display_all(t) 
+                return check 
+def display_all(cb): 
     if not cb: 
       print("List is empty: []") 
     else: 
         for i in range(len(cb)): 
             print(cb[i]) 
-
-           def thanks():
-             print("********************************************************************") 
+def thanks():
+    print("********************************************************************") 
     print("Thank you for using our Smartphone directory system.") 
     print("Please visit again!") 
     print("********************************************************************") 
     sys.exit("Goodbye, have a nice day ") 
-  print("....................................................................") 
+    print("....................................................................") 
 print("Hello dear user, welcome to our smartphone directory system") 
 print("You may now proceed ") 
 print("....................................................................") 
